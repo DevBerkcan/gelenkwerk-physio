@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600;700;800&display=swap");
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    @apply font-body text-brand-text bg-cream overflow-x-hidden;
+  }
+
+  ::selection {
+    background: rgba(26, 138, 125, 0.2);
+    color: #1e2a2a;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 
+           rounded-full bg-gradient-to-r from-teal to-teal-dark 
+           text-white font-body font-bold text-sm tracking-wide
+           shadow-lg transition-all duration-300 ease-out;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 40px rgba(26, 138, 125, 0.3);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 
+           rounded-full border-[1.5px] border-teal/30 bg-transparent 
+           text-teal font-body font-semibold text-sm tracking-wide
+           transition-all duration-300 ease-out;
+  }
+
+  .btn-secondary:hover {
+    @apply bg-teal/5;
+  }
+
+  .section-label {
+    @apply font-body text-xs tracking-[3px] uppercase mb-4 text-center;
+  }
+
+  .section-title {
+    @apply font-display text-4xl md:text-5xl font-normal text-brand-text text-center mb-3;
+  }
+
+  .section-divider {
+    @apply w-12 h-[3px] rounded-sm mx-auto mb-12;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 48px rgba(26, 138, 125, 0.12);
+  }
+}
