@@ -3,8 +3,14 @@ import { SITE_CONFIG } from "@/config/site";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_CONFIG.url),
   title: SITE_CONFIG.fullName,
   description: SITE_CONFIG.description,
+  icons: {
+    icon: "/logoo_transparent.png",
+    shortcut: "/logoo_transparent.png",
+    apple: "/logoo_transparent.png",
+  },
   openGraph: {
     title: SITE_CONFIG.fullName,
     description: SITE_CONFIG.description,
@@ -12,6 +18,20 @@ export const metadata: Metadata = {
     siteName: SITE_CONFIG.name,
     locale: "de_CH",
     type: "website",
+    images: [
+      {
+        url: "/logoo_transparent.png",
+        width: 1600,
+        height: 675,
+        alt: SITE_CONFIG.fullName,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_CONFIG.fullName,
+    description: SITE_CONFIG.description,
+    images: ["/logoo_transparent.png"],
   },
 };
 

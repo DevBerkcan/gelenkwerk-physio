@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { GelenkwerkLogo } from "@/components/ui";
 import { NAV_ITEMS, CONTACT } from "@/config/site";
 
@@ -67,15 +68,34 @@ export default function Footer({ onNavigate, onBooking }: FooterProps) {
                   {phone}
                 </a>
               ))}
+              {CONTACT.businessId && (
+                <div className="mt-3 text-xs leading-6 text-white/45">
+                  Unternehmens-Nummer: {CONTACT.businessId}
+                </div>
+              )}
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="flex flex-wrap justify-between items-center gap-4">
-          <span className="font-body text-xs text-white/30">
-            © {new Date().getFullYear()} Gelenkwerk · Alle Rechte vorbehalten
-          </span>
+        <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+          <div className="flex flex-col gap-3">
+            <div className="flex items-end gap-3">
+              <Image
+                src="/swiss_logo_transparent.png"
+                alt="Physioswiss Logo"
+                width={96}
+                height={31}
+                className="h-7 w-auto object-contain"
+              />
+              <span className="pb-1 font-body text-[11px] tracking-[0.12em] uppercase text-white/45">
+                Mitglied bei Physioswiss
+              </span>
+            </div>
+            <span className="font-body text-xs text-white/30">
+              © {new Date().getFullYear()} Gelenkwerk · Alle Rechte vorbehalten
+            </span>
+          </div>
           <div className="flex gap-5">
             {["Impressum", "Datenschutz"].map((label) => (
               <a

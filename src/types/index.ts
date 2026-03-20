@@ -51,6 +51,13 @@ export interface ContactInfo {
   };
   phone: string[];
   email?: string;
+  businessId?: string;
+}
+
+export interface DocumentInfo {
+  title: string;
+  description: string;
+  href: string;
 }
 
 // ─── Email Types ───

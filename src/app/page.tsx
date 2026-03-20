@@ -10,6 +10,7 @@ import {
   ParallaxDivider,
   MassageSection,
   AboutSection,
+  CredentialsSection,
   KontaktSection,
 } from "@/components/sections";
 import { BookingModal } from "@/components/booking";
@@ -38,6 +39,7 @@ export default function HomePage() {
         <ParallaxDivider />
         <MassageSection onBooking={openBooking} />
         <AboutSection />
+        <CredentialsSection />
         <KontaktSection onBooking={openBooking} />
       </main>
 

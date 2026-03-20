@@ -1,4 +1,4 @@
-import { Service, NavItem, ContactInfo } from "@/types";
+import { Service, NavItem, ContactInfo, DocumentInfo } from "@/types";
 
 // ─── Site Metadata ───
 
@@ -22,6 +22,7 @@ export const CONTACT: ContactInfo = {
     city: "Basel",
   },
   phone: ["+41 61 220 50 00", "+41 76 624 58 50"],
+  businessId: "CHE-261.683.274",
 };
 
 // ─── Navigation ───
@@ -31,6 +32,7 @@ export const NAV_ITEMS: NavItem[] = [
   { id: "physiotherapie", label: "Physiotherapie", href: "#physiotherapie" },
   { id: "massage", label: "Massage", href: "#massage" },
   { id: "ueber-uns", label: "Über uns", href: "#ueber-uns" },
+  { id: "zeugnisse", label: "Zeugnisse", href: "#zeugnisse" },
   { id: "kontakt", label: "Kontakt", href: "#kontakt" },
 ];
 
@@ -106,6 +108,26 @@ export const MASSAGE_PRICING = [
     popular: true,
   },
 ];
+
+// ─── Certificates & Documents ───
+
+export const DOCUMENTS: DocumentInfo[] = [
+  {
+    title: "Berufsausübungsbewilligung Basel-Stadt",
+    description: "Amtliche Bewilligung für die berufliche Tätigkeit in Basel-Stadt.",
+    href: "/Bewilligung%20BS%20Kopie.pdf",
+  },
+  {
+    title: "Bobath Weiterbildung",
+    description: "Nachweis der Weiterbildung im Bobath-Konzept.",
+    href: "/Bobath.pdf",
+  },
+  {
+    title: "Manuelle Lymphdrainage Urkunde",
+    description: "Urkunde und Qualifikationsnachweis für manuelle Lymphdrainage.",
+    href: "/MLD%20Urkunde.pdf",
+  },
+] as const;
 
 // ─── Stock Photos ───
 
