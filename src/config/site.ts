@@ -23,6 +23,7 @@ export const CONTACT: ContactInfo = {
   },
   phone: ["+41 61 220 50 00", "+41 76 624 58 50"],
   businessId: "CHE-261.683.274",
+  instagram: "https://www.instagram.com/gelenkwerk/",
 };
 
 // ─── Navigation ───

@@ -2,10 +2,11 @@
 
 import { Reveal } from "@/components/ui";
 import { PHOTOS } from "@/config/site";
-
-const SPECIALTIES = ["Physiotherapie", "Massage", "Lymphdrainage", "Domizilbehandlung"];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function AboutSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="ueber-uns" className="bg-white overflow-hidden">
       {/* Parallax image banner */}
@@ -19,10 +20,10 @@ export default function AboutSection() {
 
       <div className="max-w-[900px] mx-auto px-6 py-20 pb-24">
         <Reveal>
-          <div className="section-label text-teal">Ihre Therapeutin</div>
+          <div className="section-label text-teal">{t.about.label}</div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="section-title">Über uns</h2>
+          <h2 className="section-title">{t.about.title}</h2>
           <div className="section-divider bg-clay" />
         </Reveal>
 
@@ -40,7 +41,7 @@ export default function AboutSection() {
                   Kiriaki Chatzidimitriadou
                 </div>
                 <div className="font-body text-[13px] text-white/70">
-                  Dipl. Physiotherapeutin
+                  {t.about.role}
                 </div>
               </div>
             </div>
@@ -50,29 +51,25 @@ export default function AboutSection() {
           <div>
             <Reveal delay={0.3}>
               <h3 className="font-display text-[28px] font-medium text-brand-text mb-5">
-                Kompetenz trifft Einfühlsamkeit
+                {t.about.subtitle}
               </h3>
             </Reveal>
 
             <Reveal delay={0.4}>
               <p className="font-body text-[15px] leading-relaxed text-brand-muted mb-5">
-                Mit langjähriger Erfahrung betreut Kiriaki Chatzidimitriadou
-                Patientinnen und Patienten mit vielfältigen Beschwerden — von
-                akuten Schmerzen bis hin zu chronischen
-                Bewegungseinschränkungen.
+                {t.about.p1}
               </p>
             </Reveal>
 
             <Reveal delay={0.5}>
               <p className="font-body text-[15px] leading-relaxed text-brand-muted mb-7">
-                In der Praxis an der Elisabethenstrasse vereinen sich fachliche
-                Kompetenz und eine persönliche, einfühlsame Betreuung.
+                {t.about.p2}
               </p>
             </Reveal>
 
             <Reveal delay={0.6}>
               <div className="flex flex-wrap gap-2.5">
-                {SPECIALTIES.map((specialty) => (
+                {t.about.specialties.map((specialty) => (
                   <span
                     key={specialty}
                     className="px-4 py-2 rounded-3xl bg-teal-pale font-body text-[13px] text-teal-dark font-semibold"

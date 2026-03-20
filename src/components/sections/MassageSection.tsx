@@ -2,12 +2,15 @@
 
 import { Reveal } from "@/components/ui";
 import { PHOTOS, MASSAGE_PRICING } from "@/config/site";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface MassageSectionProps {
   onBooking: () => void;
 }
 
 export default function MassageSection({ onBooking }: MassageSectionProps) {
+  const { t } = useLanguage();
+
   return (
     <section id="massage" className="bg-warm relative overflow-hidden">
       <div className="absolute -top-[150px] -right-[150px] w-[400px] h-[400px] rounded-full bg-gradient-radial from-teal-pale to-transparent" />
@@ -16,10 +19,10 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
         {/* Header */}
         <div className="text-center mb-16">
           <Reveal>
-            <div className="section-label text-clay">Entspannung & Regeneration</div>
+            <div className="section-label text-clay">{t.massage.label}</div>
           </Reveal>
           <Reveal delay={0.1}>
-            <h2 className="section-title">Massage</h2>
+            <h2 className="section-title">{t.massage.title}</h2>
             <div className="section-divider bg-teal" />
           </Reveal>
         </div>
@@ -38,17 +41,12 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
           <div>
             <Reveal delay={0.2}>
               <p className="font-display text-xl leading-relaxed text-brand-text italic mb-5">
-                Massagen im Gelenkwerk dienen der gezielten Entspannung der
-                Muskulatur, der Förderung der Durchblutung sowie der
-                Unterstützung physiotherapeutischer Behandlungen.
+                {t.massage.intro}
               </p>
             </Reveal>
             <Reveal delay={0.3}>
               <p className="font-body text-[15px] leading-relaxed text-brand-muted">
-                Jede Anwendung wird individuell auf Ihre Beschwerden,
-                Bedürfnisse und Ziele abgestimmt — ob bei muskulären
-                Verspannungen, zur Regeneration nach Belastung oder einfach
-                zur bewussten Entspannung.
+                {t.massage.body}
               </p>
             </Reveal>
           </div>
@@ -56,7 +54,7 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
 
         {/* Pricing header */}
         <Reveal delay={0.2}>
-          <div className="section-label text-teal mb-8">Preise & Pakete</div>
+          <div className="section-label text-teal mb-8">{t.massage.pricing}</div>
         </Reveal>
 
         {/* Pricing cards */}
@@ -73,7 +71,7 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
               >
                 {pricing.popular && (
                   <span className="absolute top-4 right-4 px-3.5 py-1 rounded-full bg-teal font-body text-[11px] text-white font-bold">
-                    Beliebt
+                    {t.massage.popular}
                   </span>
                 )}
 
@@ -86,30 +84,30 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
                 />
 
                 <div className="font-body text-[11px] text-teal tracking-widest uppercase mb-2">
-                  Massage
+                  {t.massage.massage}
                 </div>
                 <div className="font-display text-[56px] font-normal text-brand-text leading-none">
                   {pricing.minutes}
                 </div>
-                <div className="font-body text-sm text-brand-muted mb-5">Minuten</div>
+                <div className="font-body text-sm text-brand-muted mb-5">{t.massage.minutes}</div>
 
                 <div className="font-display text-4xl font-medium text-teal mb-1.5">
                   {pricing.price}
                 </div>
                 <div className="font-body text-[13px] text-brand-light mb-6">
-                  Effektive Behandlungszeit ca. {pricing.effectiveMinutes} Min.
+                  {t.massage.effectiveTime} {pricing.effectiveMinutes} Min.
                 </div>
 
                 {/* 10er Card */}
                 <div className="p-4 rounded-2xl bg-gradient-to-br from-teal-pale to-warm">
                   <div className="font-body text-[11px] text-teal font-bold tracking-wide uppercase mb-1.5">
-                    10er-Karte
+                    {t.massage.tenCard}
                   </div>
                   <div className="font-display text-[22px] text-brand-text">
                     {pricing.tenCardPrice}
                   </div>
                   <div className="font-body text-xs text-clay font-semibold mt-1">
-                    Sie sparen {pricing.tenCardSaving}
+                    {t.massage.saving} {pricing.tenCardSaving}
                   </div>
                 </div>
               </div>

@@ -52,6 +52,7 @@ export interface ContactInfo {
   phone: string[];
   email?: string;
   businessId?: string;
+  instagram?: string;
 }
 
 export interface DocumentInfo {

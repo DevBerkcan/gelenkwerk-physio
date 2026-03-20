@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { GelenkwerkLogo } from "@/components/ui";
 import { NAV_ITEMS, CONTACT } from "@/config/site";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -10,6 +11,17 @@ interface FooterProps {
 }
 
 export default function Footer({ onNavigate, onBooking }: FooterProps) {
+  const { t } = useLanguage();
+
+  const navLabels = [
+    t.nav.home,
+    t.nav.physio,
+    t.nav.massage,
+    t.nav.about,
+    t.nav.credentials,
+    t.nav.contact,
+  ];
+
   return (
     <footer className="bg-brand-dark py-14 px-6">
       <div className="max-w-[1100px] mx-auto">
@@ -23,28 +35,28 @@ export default function Footer({ onNavigate, onBooking }: FooterProps) {
               </span>
             </div>
             <p className="font-body text-[13px] text-white/50 leading-relaxed mb-4">
-              Ihre Praxis für Physiotherapie und Massage in Basel.
+              {t.footer.tagline}
             </p>
             <button
               onClick={onBooking}
               className="px-6 py-2.5 rounded-full bg-teal text-white border-none cursor-pointer font-body text-[13px] font-semibold"
             >
-              Termin buchen
+              {t.footer.book}
             </button>
           </div>
 
           {/* Navigation */}
           <div>
             <div className="font-body text-[11px] text-white/30 tracking-widest uppercase mb-4">
-              Navigation
+              {t.footer.navigation}
             </div>
-            {NAV_ITEMS.map((item) => (
+            {NAV_ITEMS.map((item, i) => (
               <button
                 key={item.id}
                 onClick={() => onNavigate(item.id)}
                 className="block bg-transparent border-none cursor-pointer font-body text-sm text-white/60 py-1 hover:text-teal-light transition-colors duration-300"
               >
-                {item.label}
+                {navLabels[i]}
               </button>
             ))}
           </div>
@@ -52,7 +64,7 @@ export default function Footer({ onNavigate, onBooking }: FooterProps) {
           {/* Contact */}
           <div>
             <div className="font-body text-[11px] text-white/30 tracking-widest uppercase mb-4">
-              Kontakt
+              {t.footer.contact}
             </div>
             <div className="font-body text-sm text-white/60 leading-8">
               {CONTACT.address.street}
@@ -70,7 +82,7 @@ export default function Footer({ onNavigate, onBooking }: FooterProps) {
               ))}
               {CONTACT.businessId && (
                 <div className="mt-3 text-xs leading-6 text-white/45">
-                  Unternehmens-Nummer: {CONTACT.businessId}
+                  {t.footer.businessId}: {CONTACT.businessId}
                 </div>
               )}
             </div>
@@ -89,23 +101,20 @@ export default function Footer({ onNavigate, onBooking }: FooterProps) {
                 className="h-7 w-auto object-contain"
               />
               <span className="pb-1 font-body text-[11px] tracking-[0.12em] uppercase text-white/45">
-                Mitglied bei Physioswiss
+                {t.footer.member}
               </span>
             </div>
             <span className="font-body text-xs text-white/30">
-              © {new Date().getFullYear()} Gelenkwerk · Alle Rechte vorbehalten
+              © {new Date().getFullYear()} Gelenkwerk · {t.footer.copyright}
             </span>
           </div>
           <div className="flex gap-5">
-            {["Impressum", "Datenschutz"].map((label) => (
-              <a
-                key={label}
-                href="#"
-                className="font-body text-xs text-white/30 no-underline hover:text-white/60 transition-colors"
-              >
-                {label}
-              </a>
-            ))}
+            <a href="#" className="font-body text-xs text-white/30 no-underline hover:text-white/60 transition-colors">
+              {t.footer.imprint}
+            </a>
+            <a href="#" className="font-body text-xs text-white/30 no-underline hover:text-white/60 transition-colors">
+              {t.footer.privacy}
+            </a>
           </div>
         </div>
       </div>

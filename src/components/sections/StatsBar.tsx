@@ -1,14 +1,17 @@
 "use client";
 
 import { Reveal, CountUp } from "@/components/ui";
-
-const STATS = [
-  { value: 10, suffix: "+", label: "Jahre Erfahrung" },
-  { value: 5, suffix: "", label: "Behandlungsarten" },
-  { value: 100, suffix: "%", label: "Krankenkassen-anerkannt" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function StatsBar() {
+  const { t } = useLanguage();
+
+  const STATS = [
+    { value: 20, suffix: "+", label: t.stats.years },
+    { value: 5, suffix: "", label: t.stats.treatments },
+    { value: 100, suffix: "%", label: t.stats.insurance },
+  ];
+
   return (
     <section className="bg-teal py-12 px-6">
       <div className="max-w-[900px] mx-auto flex justify-around flex-wrap gap-8">

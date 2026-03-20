@@ -2,31 +2,34 @@
 
 import { Reveal, GelenkwerkLogo } from "@/components/ui";
 import { CONTACT } from "@/config/site";
-import { MapPin, Phone, Clock } from "lucide-react";
+import { MapPin, Phone, Clock, Instagram } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface KontaktSectionProps {
   onBooking: () => void;
 }
 
-const CONTACT_ITEMS = [
-  {
-    icon: MapPin,
-    title: "Adresse",
-    content: `${CONTACT.address.street}\n${CONTACT.address.zip} ${CONTACT.address.city}`,
-  },
-  {
-    icon: Phone,
-    title: "Telefon",
-    isPhone: true,
-  },
-  {
-    icon: Clock,
-    title: "Termin",
-    content: "Termine nach Vereinbarung",
-  },
-];
-
 export default function KontaktSection({ onBooking }: KontaktSectionProps) {
+  const { t } = useLanguage();
+
+  const CONTACT_ITEMS = [
+    {
+      icon: MapPin,
+      title: t.contact.address,
+      content: `${CONTACT.address.street}\n${CONTACT.address.zip} ${CONTACT.address.city}`,
+    },
+    {
+      icon: Phone,
+      title: t.contact.phone,
+      isPhone: true,
+    },
+    {
+      icon: Clock,
+      title: t.contact.appointment,
+      content: t.contact.byAppointment,
+    },
+  ];
+
   return (
     <section
       id="kontakt"
@@ -34,10 +37,10 @@ export default function KontaktSection({ onBooking }: KontaktSectionProps) {
     >
       <div className="max-w-[1100px] mx-auto">
         <Reveal>
-          <div className="section-label text-teal">Wir freuen uns auf Sie</div>
+          <div className="section-label text-teal">{t.contact.label}</div>
         </Reveal>
         <Reveal delay={0.1}>
-          <h2 className="section-title">Kontakt</h2>
+          <h2 className="section-title">{t.contact.title}</h2>
           <div className="section-divider bg-teal-light" />
         </Reveal>
 
@@ -93,11 +96,25 @@ export default function KontaktSection({ onBooking }: KontaktSectionProps) {
               })}
 
               <Reveal delay={0.55}>
+                {CONTACT.instagram && (
+                  <a
+                    href={CONTACT.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mb-3 flex items-center justify-center gap-2 rounded-full border border-teal/15 bg-teal-pale px-5 py-3 font-body text-sm font-semibold text-teal no-underline transition-colors duration-300 hover:bg-teal hover:text-white"
+                  >
+                    <Instagram size={16} />
+                    {t.contact.instagram}
+                  </a>
+                )}
+              </Reveal>
+
+              <Reveal delay={0.6}>
                 <button
                   onClick={onBooking}
-                  className="btn-primary w-full mt-4"
+                  className="btn-primary w-full"
                 >
-                  Online Termin buchen
+                  {t.contact.book}
                 </button>
               </Reveal>
             </div>

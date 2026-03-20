@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/config/site";
+import { LanguageProvider } from "@/context/LanguageContext";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
@@ -48,7 +49,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased"><LanguageProvider>{children}</LanguageProvider></body>
     </html>
   );
 }
