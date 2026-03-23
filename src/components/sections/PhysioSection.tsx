@@ -1,8 +1,18 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui";
 import { SERVICES, PHOTOS } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
+
+const cardContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+const cardItem = {
+  hidden: { opacity: 0, y: 24 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.16, 1, 0.3, 1] } },
+};
 
 interface PhysioSectionProps {
   onBooking: () => void;
@@ -61,30 +71,39 @@ export default function PhysioSection({ onBooking }: PhysioSectionProps) {
 
       {/* Service cards */}
       <div className="max-w-[1100px] mx-auto px-6 py-16 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {physioServices.map((service, index) => {
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+          variants={cardContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+        >
+          {physioServices.map((service) => {
             const translated = t.physio.services[service.id as keyof typeof t.physio.services];
             return (
-              <Reveal key={service.id} delay={0.1 + index * 0.12}>
-                <div
-                  onClick={onBooking}
-                  className="p-8 rounded-[20px] bg-white border border-teal-pale relative overflow-hidden cursor-pointer card-hover"
-                >
-                  <div className="absolute top-0 left-0 w-10 h-[3px] bg-gradient-to-r from-teal to-teal-light rounded-br transition-all duration-500 hover:w-full" />
-                  <h3 className="font-display text-xl font-semibold text-brand-text mb-2">
-                    {translated?.name ?? service.name}
-                  </h3>
-                  <span className="inline-block px-3.5 py-1 rounded-full bg-teal-pale font-body text-xs text-teal font-semibold mb-3">
-                    {translated?.durationLabel ?? service.durationLabel}
-                  </span>
-                  <p className="font-body text-sm leading-relaxed text-brand-muted">
-                    {translated?.description ?? service.description}
-                  </p>
-                </div>
-              </Reveal>
+              <motion.div
+                key={service.id}
+                variants={cardItem}
+                onClick={onBooking}
+                whileHover={{ y: -8, boxShadow: "0 20px 48px rgba(26,138,125,0.13)" }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                className="p-8 rounded-[20px] bg-white border border-teal-pale relative overflow-hidden cursor-pointer"
+              >
+                <div className="absolute top-0 left-0 w-10 h-[3px] bg-gradient-to-r from-teal to-teal-light rounded-br transition-all duration-500 hover:w-full" />
+                <h3 className="font-display text-xl font-semibold text-brand-text mb-2">
+                  {translated?.name ?? service.name}
+                </h3>
+                <span className="inline-block px-3.5 py-1 rounded-full bg-teal-pale font-body text-xs text-teal font-semibold mb-3">
+                  {translated?.durationLabel ?? service.durationLabel}
+                </span>
+                <p className="font-body text-sm leading-relaxed text-brand-muted">
+                  {translated?.description ?? service.description}
+                </p>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

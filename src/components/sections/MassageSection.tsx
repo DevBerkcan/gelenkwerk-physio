@@ -1,8 +1,18 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { Reveal } from "@/components/ui";
 import { PHOTOS, MASSAGE_PRICING } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
+
+const cardContainer = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.15 } },
+};
+const cardItem = {
+  hidden: { opacity: 0, y: 28 },
+  show:   { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] } },
+};
 
 interface MassageSectionProps {
   onBooking: () => void;
@@ -58,12 +68,22 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
         </Reveal>
 
         {/* Pricing cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto">
-          {MASSAGE_PRICING.map((pricing, index) => (
-            <Reveal key={pricing.minutes} delay={0.25 + index * 0.1}>
-              <div
-                onClick={onBooking}
-                className={`p-10 rounded-3xl text-center cursor-pointer card-hover ${
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-[700px] mx-auto"
+          variants={cardContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-60px" }}
+        >
+          {MASSAGE_PRICING.map((pricing, idx) => (
+            <motion.div
+              key={pricing.minutes}
+              variants={cardItem}
+              onClick={onBooking}
+              whileHover={{ y: -10, boxShadow: "0 24px 56px rgba(26,138,125,0.15)" }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 280, damping: 20 }}
+              className={`p-10 rounded-3xl text-center cursor-pointer ${
                   pricing.popular
                     ? "bg-gradient-to-br from-teal-pale/40 to-white border-2 border-teal/25"
                     : "bg-white border border-teal-pale"
@@ -78,7 +98,7 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
                 <div
                   className="w-20 h-20 rounded-full mx-auto mb-5 bg-cover bg-center border-[3px]"
                   style={{
-                    backgroundImage: `url(${index === 0 ? PHOTOS.massage2 : PHOTOS.wellness})`,
+                    backgroundImage: `url(${idx === 0 ? PHOTOS.massage2 : PHOTOS.wellness})`,
                     borderColor: pricing.popular ? "rgba(26,138,125,0.25)" : "#e8f5f2",
                   }}
                 />
@@ -110,10 +130,9 @@ export default function MassageSection({ onBooking }: MassageSectionProps) {
                     {t.massage.saving} {pricing.tenCardSaving}
                   </div>
                 </div>
-              </div>
-            </Reveal>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
