@@ -10,12 +10,12 @@ export default function AboutSection() {
   return (
     <section id="ueber-uns" className="bg-white overflow-hidden">
       {/* Parallax image banner */}
-      <div className="relative h-[350px] overflow-hidden">
+      <div className="relative h-[320px] overflow-hidden bg-brand-dark">
         <div
-          className="absolute inset-x-0 -inset-y-10 bg-cover bg-center"
-          style={{ backgroundImage: `url(${PHOTOS.about})` }}
+          className="absolute inset-x-0 bg-cover bg-center"
+          style={{ backgroundImage: `url(${PHOTOS.about})`, top: "-15%", bottom: "-15%", opacity: 0.75 }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/10 to-brand-dark/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40" />
       </div>
 
       <div className="max-w-[900px] mx-auto px-6 py-20 pb-24">

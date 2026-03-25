@@ -143,7 +143,7 @@ export const PHOTOS = {
   massage2:
     "https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80",
   about:
-    "https://images.unsplash.com/photo-1666214280557-091f51695098?w=800&q=80",
+    "https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=1400&q=80",
   contact:
     "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=800&q=80",
   wellness:
