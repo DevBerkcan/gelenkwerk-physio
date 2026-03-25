@@ -76,6 +76,31 @@ export const translations = {
       role: "Dipl. Physiotherapeutin",
       specialties: ["Physiotherapie", "Massage", "Lymphdrainage", "Domizilbehandlung"],
     },
+    fachrichtung: {
+      label: "Die Fachrichtung",
+      title: "Was ist Physiotherapie?",
+      intro:
+        "Physiotherapie ist ein Überbegriff für verschiedene Therapie-Methoden zur Behandlung von Gesundheitsstörungen, insbesondere von Beschwerden des Bewegungsapparates.",
+      cards: [
+        {
+          title: "Die Fachrichtung",
+          text: "Zusammen mit Medizin und Pflege bildet die Physiotherapie die drei Säulen der Schulmedizin. Sie richtet sich an verunfallte Patienten sowie Menschen mit akuten oder chronischen Erkrankungen — und ist oft eine wirkungsvolle Alternative oder Ergänzung zur operativen oder medikamentösen Behandlung.",
+        },
+        {
+          title: "Aktive Therapie",
+          text: "Bei der Bewegungstherapie trainiert der Patient unter Anleitung des Physiotherapeuten mit gezielter Belastung. Zahlreiche Studien belegen, dass aktive Physiotherapie häufig die besten und nachhaltigsten Resultate erzielt.",
+        },
+        {
+          title: "Passive Therapie",
+          text: "Physikalische Reize wie Wärme und Kälte, Strom und Ultraschallwellen sowie gezielte manuelle Griffe des Physiotherapeuten lösen Schmerzen und korrigieren Fehlhaltungen, ohne dass der Patient selbst aktiv sein muss.",
+        },
+      ],
+      approach: {
+        title: "Unser Ansatz",
+        text: "Wir legen besonderen Wert auf die Kombination von aktiven und passiven Therapieformen: klassische therapeutische Handgriffe und technische Hilfsmittel, ergänzt durch Training mit individuell dosierter Belastung — für nachhaltige Ergebnisse.",
+        cta: "Termin buchen",
+      },
+    },
     credentials: {
       label: "Qualifikation & Nachweise",
       title: "Zeugnisse & Erfahrungen",
@@ -94,6 +119,27 @@ export const translations = {
         {
           title: "Manuelle Lymphdrainage Urkunde",
           description: "Urkunde und Qualifikationsnachweis für manuelle Lymphdrainage.",
+        },
+      ],
+    },
+    bewertungen: {
+      label: "Was Patienten sagen",
+      title: "Erfahrungen & Bewertungen",
+      reviews: [
+        {
+          name: "Sandra M.",
+          treatment: "Physiotherapie",
+          quote: "Nach meinem Bandscheibenvorfall war ich wirklich verzweifelt. Die Behandlung bei Kiriaki hat mir unglaublich geholfen — nach wenigen Wochen war ich wieder schmerzfrei. Sehr einfühlsam und kompetent.",
+        },
+        {
+          name: "Thomas R.",
+          treatment: "Manuelle Lymphdrainage",
+          quote: "Ich war nach einer Operation auf Lymphdrainage angewiesen. Die Behandlungen hier waren professionell und wirkungsvoll. Ich habe mich von Anfang an in guten Händen gefühlt.",
+        },
+        {
+          name: "Maria K.",
+          treatment: "Massage & Physiotherapie",
+          quote: "Ich komme seit über zwei Jahren regelmässig zu Kiriaki. Die Kombination aus Massage und Physiotherapie hilft mir enorm bei meinen chronischen Nackenproblemen. Absolut empfehlenswert!",
         },
       ],
     },
@@ -194,6 +240,31 @@ export const translations = {
       role: "Dipl. Physiotherapist",
       specialties: ["Physiotherapy", "Massage", "Lymphatic drainage", "Home visits"],
     },
+    fachrichtung: {
+      label: "The Discipline",
+      title: "What is Physiotherapy?",
+      intro:
+        "Physiotherapy is an umbrella term for various therapy methods used to treat health disorders, particularly complaints of the musculoskeletal system.",
+      cards: [
+        {
+          title: "The Discipline",
+          text: "Together with medicine and nursing, physiotherapy forms the three pillars of conventional medicine. It serves accident victims as well as people with acute or chronic conditions — and is often an effective alternative or complement to surgical or pharmaceutical treatment.",
+        },
+        {
+          title: "Active Therapy",
+          text: "In movement therapy, the patient trains under the guidance of the physiotherapist with targeted exertion. Numerous studies show that active physiotherapy frequently achieves the best and most lasting results.",
+        },
+        {
+          title: "Passive Therapy",
+          text: "Physical stimuli such as heat and cold, electrical currents and ultrasound waves, as well as targeted manual techniques by the physiotherapist, relieve pain and correct poor posture without requiring active effort from the patient.",
+        },
+      ],
+      approach: {
+        title: "Our Approach",
+        text: "We place particular emphasis on combining active and passive therapy forms: classic therapeutic manual techniques and technical aids, complemented by training with individually dosed load — for lasting results.",
+        cta: "Book appointment",
+      },
+    },
     credentials: {
       label: "Qualifications & Certificates",
       title: "Credentials & Experience",
@@ -212,6 +283,27 @@ export const translations = {
         {
           title: "Manual lymphatic drainage certificate",
           description: "Certificate and proof of qualification for manual lymphatic drainage.",
+        },
+      ],
+    },
+    bewertungen: {
+      label: "What patients say",
+      title: "Experiences & Reviews",
+      reviews: [
+        {
+          name: "Sandra M.",
+          treatment: "Physiotherapy",
+          quote: "After my herniated disc I was truly desperate. The treatment with Kiriaki helped me enormously — after a few weeks I was pain-free. Very empathetic and competent.",
+        },
+        {
+          name: "Thomas R.",
+          treatment: "Manual Lymphatic Drainage",
+          quote: "After surgery I needed lymphatic drainage. The treatments here were professional and effective. I felt in good hands from the very first session.",
+        },
+        {
+          name: "Maria K.",
+          treatment: "Massage & Physiotherapy",
+          quote: "I have been coming to Kiriaki regularly for over two years. The combination of massage and physiotherapy helps me enormously with my chronic neck problems. Highly recommended!",
         },
       ],
     },

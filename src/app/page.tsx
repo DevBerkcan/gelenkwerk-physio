@@ -10,9 +10,12 @@ import {
   PhysioSection,
   ParallaxDivider,
   MassageSection,
+  FachrichtungSection,
   AboutSection,
   CredentialsSection,
+  BewertungenSection,
   KontaktSection,
+  BlogSection,
 } from "@/components/sections";
 import { BookingModal } from "@/components/booking";
 
@@ -38,9 +41,12 @@ export default function HomePage() {
         <PhysioSection onBooking={openBooking} />
         <ParallaxDivider />
         <MassageSection onBooking={openBooking} />
+        <FachrichtungSection onBooking={openBooking} />
         <AboutSection />
         <CredentialsSection />
+        <BewertungenSection />
         <KontaktSection onBooking={openBooking} />
+        <BlogSection />
       </main>
 
       <Footer onNavigate={scrollTo} onBooking={openBooking} />

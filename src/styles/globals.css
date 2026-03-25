@@ -64,4 +64,25 @@
     transform: translateY(-6px);
     box-shadow: 0 20px 48px rgba(26, 138, 125, 0.12);
   }
+
+  /* Blog Article Prose */
+  .prose-blog h2 {
+    @apply font-display text-[26px] font-normal text-brand-text mt-10 mb-4 leading-tight;
+  }
+  .prose-blog p {
+    @apply font-body text-[15px] text-brand-muted leading-relaxed mb-5;
+  }
+  .prose-blog ul {
+    @apply mb-5 space-y-2;
+  }
+  .prose-blog ul li {
+    @apply font-body text-[15px] text-brand-muted leading-relaxed pl-5 relative;
+  }
+  .prose-blog ul li::before {
+    content: "→";
+    @apply absolute left-0 text-teal font-semibold;
+  }
+  .prose-blog strong {
+    @apply font-semibold text-brand-text;
+  }
 }
