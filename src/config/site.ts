@@ -61,21 +61,30 @@ export const SERVICES: Service[] = [
   },
   {
     id: "massage-30",
-    name: "Massage 30 Min.",
+    name: "Klassische Massage 30 Min.",
     duration: 30,
     durationLabel: "~ 30 Min.",
-    price: "CHF 60.–",
+    price: "CHF 77.00",
     category: "massage",
-    description: "Teil- oder Ganzkörpermassage, individuell angepasst",
+    description: "Private Leistung, individuell abgestimmt",
+  },
+  {
+    id: "massage-45",
+    name: "Klassische Massage 45 Min.",
+    duration: 45,
+    durationLabel: "~ 45 Min.",
+    price: "CHF 114.50",
+    category: "massage",
+    description: "Private Leistung, individuell abgestimmt",
   },
   {
     id: "massage-60",
-    name: "Massage 60 Min.",
+    name: "Klassische Massage 60 Min.",
     duration: 60,
     durationLabel: "~ 60 Min.",
-    price: "CHF 120.–",
+    price: "CHF 152.00",
     category: "massage",
-    description: "Ausführliche Ganzkörpermassage zur tiefen Entspannung",
+    description: "Private Leistung, individuell abgestimmt",
   },
   {
     id: "lymph",
@@ -86,27 +95,6 @@ export const SERVICES: Service[] = [
     category: "physio",
     description:
       "Sanfte Entstauungstherapie zur Förderung des Lymphflusses",
-  },
-];
-
-// ─── Massage Pricing ───
-
-export const MASSAGE_PRICING = [
-  {
-    minutes: 30,
-    price: "CHF 60.–",
-    effectiveMinutes: 25,
-    tenCardPrice: "CHF 540.–",
-    tenCardSaving: "CHF 60.–",
-    popular: false,
-  },
-  {
-    minutes: 60,
-    price: "CHF 120.–",
-    effectiveMinutes: 55,
-    tenCardPrice: "CHF 1'080.–",
-    tenCardSaving: "CHF 120.–",
-    popular: true,
   },
 ];
 
