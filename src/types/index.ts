@@ -55,12 +55,6 @@ export interface ContactInfo {
   instagram?: string;
 }
 
-export interface DocumentInfo {
-  title: string;
-  description: string;
-  href: string;
-}
-
 // ─── Email Types ───
 
 export interface EmailPayload {

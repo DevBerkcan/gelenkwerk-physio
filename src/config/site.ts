@@ -1,4 +1,4 @@
-import { Service, NavItem, ContactInfo, DocumentInfo } from "@/types";
+import { Service, NavItem, ContactInfo } from "@/types";
 
 // ─── Site Metadata ───
 
@@ -97,26 +97,6 @@ export const SERVICES: Service[] = [
       "Sanfte Entstauungstherapie zur Förderung des Lymphflusses",
   },
 ];
-
-// ─── Certificates & Documents ───
-
-export const DOCUMENTS: DocumentInfo[] = [
-  {
-    title: "Berufsausübungsbewilligung Basel-Stadt",
-    description: "Amtliche Bewilligung für die berufliche Tätigkeit in Basel-Stadt.",
-    href: "/Bewilligung%20BS%20Kopie.pdf",
-  },
-  {
-    title: "Bobath Weiterbildung",
-    description: "Nachweis der Weiterbildung im Bobath-Konzept.",
-    href: "/Bobath.pdf",
-  },
-  {
-    title: "Manuelle Lymphdrainage Urkunde",
-    description: "Urkunde und Qualifikationsnachweis für manuelle Lymphdrainage.",
-    href: "/MLD%20Urkunde.pdf",
-  },
-] as const;
 
 // ─── Stock Photos ───
 

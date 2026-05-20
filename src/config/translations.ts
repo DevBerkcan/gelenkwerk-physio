@@ -70,9 +70,9 @@ export const translations = {
       title: "Über uns",
       subtitle: "Kompetenz trifft Einfühlsamkeit",
       p1:
-        "Mit langjähriger Erfahrung betreut Kiriaki Chatzidimitriadou Patientinnen und Patienten mit vielfältigen Beschwerden — von akuten Schmerzen bis hin zu chronischen Bewegungseinschränkungen.",
+        "Mit langjähriger Erfahrung betreue ich Patientinnen und Patienten mit vielfältigen Beschwerden — von akuten Schmerzen bis hin zu chronischen Bewegungseinschränkungen.",
       p2:
-        "In der Praxis an der Elisabethenstrasse vereinen sich fachliche Kompetenz und eine persönliche, einfühlsame Betreuung.",
+        "In meiner Praxis an der Elisabethenstrasse verbinde ich fachliche Kompetenz mit persönlicher, einfühlsamer Betreuung.",
       role: "Dipl. Physiotherapeutin",
       specialties: ["Physiotherapie", "Massage", "Lymphdrainage", "Domizilbehandlung"],
     },
@@ -105,8 +105,7 @@ export const translations = {
       label: "Qualifikation & Nachweise",
       title: "Zeugnisse & Erfahrungen",
       description:
-        "Transparenz schafft Vertrauen. Hier finden Sie wichtige Nachweise, Bewilligungen und Weiterbildungen als PDF zum Ansehen oder Download.",
-      openPdf: "PDF öffnen",
+        "Transparenz schafft Vertrauen. Hier finden Sie einen Überblick über wichtige Nachweise, Bewilligungen und Weiterbildungen.",
       documents: [
         {
           title: "Berufsausübungsbewilligung Basel-Stadt",
@@ -234,9 +233,9 @@ export const translations = {
       title: "About us",
       subtitle: "Expertise meets empathy",
       p1:
-        "With many years of experience, Kiriaki Chatzidimitriadou treats patients with a wide variety of complaints — from acute pain to chronic movement restrictions.",
+        "With many years of experience, I treat patients with a wide variety of complaints — from acute pain to chronic movement restrictions.",
       p2:
-        "At the practice on Elisabethenstrasse, professional expertise and personal, empathetic care come together.",
+        "At my practice on Elisabethenstrasse, I combine professional expertise with personal, empathetic care.",
       role: "Dipl. Physiotherapist",
       specialties: ["Physiotherapy", "Massage", "Lymphatic drainage", "Home visits"],
     },
@@ -269,8 +268,7 @@ export const translations = {
       label: "Qualifications & Certificates",
       title: "Credentials & Experience",
       description:
-        "Transparency builds trust. Here you will find important certificates, licences, and further training as PDFs to view or download.",
-      openPdf: "Open PDF",
+        "Transparency builds trust. Here you will find an overview of important certificates, licences, and further training.",
       documents: [
         {
           title: "Professional licence Basel-Stadt",

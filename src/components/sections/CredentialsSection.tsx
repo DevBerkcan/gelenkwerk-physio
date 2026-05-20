@@ -1,8 +1,7 @@
 "use client";
 
-import { FileText, Download, ShieldCheck } from "lucide-react";
+import { Award, ShieldCheck } from "lucide-react";
 import { Reveal } from "@/components/ui";
-import { DOCUMENTS } from "@/config/site";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function CredentialsSection() {
@@ -31,35 +30,25 @@ export default function CredentialsSection() {
         </Reveal>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {DOCUMENTS.map((document, index) => {
+          {t.credentials.documents.map((document, index) => {
             const translated = t.credentials.documents[index];
             return (
-              <Reveal key={document.href} delay={0.2 + index * 0.08}>
+              <Reveal key={document.title} delay={0.2 + index * 0.08}>
                 <article className="flex h-full flex-col rounded-[24px] border border-teal-pale bg-white p-8 shadow-[0_10px_30px_rgba(26,138,125,0.06)]">
                   <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-teal-pale">
                     {index === 0 ? (
                       <ShieldCheck size={28} className="text-teal" />
                     ) : (
-                      <FileText size={28} className="text-teal" />
+                      <Award size={28} className="text-teal" />
                     )}
                   </div>
 
                   <h3 className="mb-3 font-display text-[24px] leading-tight text-brand-text">
-                    {translated?.title ?? document.title}
+                    {translated.title}
                   </h3>
-                  <p className="mb-6 flex-1 font-body text-sm leading-relaxed text-brand-muted">
-                    {translated?.description ?? document.description}
+                  <p className="flex-1 font-body text-sm leading-relaxed text-brand-muted">
+                    {translated.description}
                   </p>
-
-                  <a
-                    href={document.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center justify-center gap-2 self-start rounded-full border border-teal/15 bg-teal-pale px-5 py-3 font-body text-sm font-semibold text-teal transition-colors duration-300 hover:bg-teal hover:text-white"
-                  >
-                    <Download size={16} />
-                    {t.credentials.openPdf}
-                  </a>
                 </article>
               </Reveal>
             );

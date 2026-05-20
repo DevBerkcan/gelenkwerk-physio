@@ -11,11 +11,11 @@ const MASSAGE_CONTENT = {
     intro:
       "Die klassische Massage wird als private Leistung angeboten und richtet sich individuell nach Ihren Beschwerden und Bedürfnissen.",
     body:
-      "Mit ärztlicher Verordnung übernimmt die Grundversicherung (KVG / UVG / IV / MV) die physiotherapeutischen Leistungen gemäss Tarif. Ohne Verordnung gelten unsere privaten Massagetarife.",
+      "Klassische Massagen sind eine reine Privatleistung. Die Grundversicherung übernimmt keine Massagekosten.",
     coverageTitle: "Kostenübernahme",
     coverage:
-      "Mit ärztlicher Verordnung übernimmt die Grundversicherung (KVG / UVG / IV / MV) gemäss Tarif. Ohne Verordnung gelten unsere Massagetarife.",
-    pricingTitle: "Tarife & Kostenübernahme",
+      "Massage ist eine reine Privatleistung und wird nicht von der Grundversicherung übernommen. Die Tarifpositionen entsprechen den gängigen Physiotarifen.",
+    pricingTitle: "Tarife Massage (Privatleistung)",
     pricingItems: [
       { title: "30 Minuten", description: "Einzelsitzungspauschale", price: "CHF 77.00" },
       { title: "45 Minuten", description: "Einzelsitzungspauschale", price: "CHF 114.50" },
@@ -23,7 +23,6 @@ const MASSAGE_CONTENT = {
     ],
     extrasTitle: "Weitere private Leistungen",
     extras: [
-      { title: "Klassische Massage", description: "Tarif", price: "CHF 12.50 / 5 Min" },
       {
         title: "Verpasste Konsultation",
         description: "30 Min / 45 Min / 60 Min",
@@ -39,11 +38,6 @@ const MASSAGE_CONTENT = {
         description: "Administrative und therapeutische Arbeit",
         price: "CHF 20.00",
       },
-      {
-        title: "Anamnese / Untersuchung / Befunderhebung / Diagnostik",
-        description: "Tarif",
-        price: "CHF 14.50 / 5 Min",
-      },
     ],
   },
   en: {
@@ -52,11 +46,11 @@ const MASSAGE_CONTENT = {
     intro:
       "Classical massage is offered as a private service and is individually tailored to your complaints and needs.",
     body:
-      "With a medical prescription, basic insurance (KVG / UVG / IV / MV) covers physiotherapy services according to the tariff. Without a prescription, our private massage rates apply.",
+      "Classical massage is a fully private service. Basic health insurance does not cover massage costs.",
     coverageTitle: "Insurance coverage",
     coverage:
-      "With a medical prescription, basic insurance (KVG / UVG / IV / MV) covers treatment according to the tariff. Without a prescription, our private massage rates apply.",
-    pricingTitle: "Rates & Coverage",
+      "Massage is a fully private service and is not covered by basic health insurance. Rates follow standard physiotherapy tariffs.",
+    pricingTitle: "Massage Rates (Private Service)",
     pricingItems: [
       { title: "30 minutes", description: "Single session flat rate", price: "CHF 77.00" },
       { title: "45 minutes", description: "Single session flat rate", price: "CHF 114.50" },
@@ -64,7 +58,6 @@ const MASSAGE_CONTENT = {
     ],
     extrasTitle: "Additional private services",
     extras: [
-      { title: "Classical massage", description: "Rate", price: "CHF 12.50 / 5 min" },
       {
         title: "Missed consultation",
         description: "30 min / 45 min / 60 min",
@@ -79,11 +72,6 @@ const MASSAGE_CONTENT = {
         title: "Phone consultation / record review / work in absence",
         description: "Administrative and therapeutic work",
         price: "CHF 20.00",
-      },
-      {
-        title: "Medical history / examination / findings / diagnostics",
-        description: "Rate",
-        price: "CHF 14.50 / 5 min",
       },
     ],
   },

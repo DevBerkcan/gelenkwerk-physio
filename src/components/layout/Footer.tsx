@@ -98,7 +98,7 @@ export default function Footer({ onNavigate, onBooking }: FooterProps) {
                 alt="Physioswiss Logo"
                 width={96}
                 height={31}
-                className="h-7 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
               <span className="pb-1 font-body text-[11px] tracking-[0.12em] uppercase text-white/45">
                 {t.footer.member}

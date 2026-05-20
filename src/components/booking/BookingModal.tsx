@@ -1,93 +1,36 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { Service, BookingFormData } from "@/types";
+import { useEffect } from "react";
 import { GelenkwerkLogo } from "@/components/ui";
 import { useBodyScrollLock } from "@/hooks";
-import { formatDateGerman, generateBookingId } from "@/lib/utils";
-import StepService from "./StepService";
-import StepDateTime from "./StepDateTime";
-import StepContact from "./StepContact";
-import StepConfirmation from "./StepConfirmation";
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const STEP_LABELS = ["Leistung", "Termin", "Kontakt"];
-
-const INITIAL_FORM: BookingFormData = {
-  vorname: "",
-  nachname: "",
-  email: "",
-  telefon: "",
-  nachricht: "",
-};
-
 export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
-  const [step, setStep] = useState(1);
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [selectedTime, setSelectedTime] = useState<string | null>(null);
-  const [form, setForm] = useState<BookingFormData>(INITIAL_FORM);
-  const [isSending, setIsSending] = useState(false);
-  const [isConfirmed, setIsConfirmed] = useState(false);
-
   useBodyScrollLock(isOpen);
 
-  // Reset state when modal closes
   useEffect(() => {
-    if (!isOpen) {
-      const timer = setTimeout(() => {
-        setStep(1);
-        setSelectedService(null);
-        setSelectedDate(null);
-        setSelectedTime(null);
-        setForm(INITIAL_FORM);
-        setIsConfirmed(false);
-      }, 400);
-      return () => clearTimeout(timer);
-    }
-  }, [isOpen]);
+    if (!isOpen) return;
 
-  const handleSubmit = useCallback(async () => {
-    if (!selectedService || !selectedDate || !selectedTime) return;
-
-    setIsSending(true);
-
-    const bookingId = generateBookingId();
-    const dateStr = formatDateGerman(selectedDate);
-
-    try {
-      const response = await fetch("/api/booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          bookingId,
-          service: selectedService.name,
-          duration: selectedService.durationLabel,
-          price: selectedService.price || "Gemäss Verordnung",
-          date: dateStr,
-          time: selectedTime,
-          customerName: `${form.vorname} ${form.nachname}`,
-          email: form.email,
-          phone: form.telefon,
-          message: form.nachricht,
-        }),
-      });
-
-      if (!response.ok) {
-        console.error("Booking API error:", response.statusText);
+    const handler = (event: MessageEvent) => {
+      if (!event.data) return;
+      try {
+        const data = JSON.parse(event.data);
+        const iframe = document.getElementById("t-booking") as HTMLIFrameElement | null;
+        if (data && iframe) {
+          iframe.style.height = data.height + "px";
+        }
+      } catch {
+        // ignore non-JSON messages
       }
-    } catch (error) {
-      console.error("Booking submission error:", error);
-    }
+    };
 
-    // Always show confirmation (booking is recorded in any case)
-    setIsSending(false);
-    setIsConfirmed(true);
-  }, [selectedService, selectedDate, selectedTime, form]);
+    window.addEventListener("message", handler);
+    return () => window.removeEventListener("message", handler);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -131,93 +74,14 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
           </button>
         </div>
 
-        {/* Progress indicator */}
-        {!isConfirmed && (
-          <div className="px-8 pt-4 flex gap-2 items-center">
-            {STEP_LABELS.map((label, index) => {
-              const stepNum = index + 1;
-              const isActive = step === stepNum;
-              const isCompleted = step > stepNum;
-
-              return (
-                <div key={label} className="flex-1 flex flex-col items-center gap-1.5">
-                  <div className="flex items-center w-full">
-                    <div
-                      className={`w-7 h-7 rounded-full flex-shrink-0 flex items-center justify-center font-body text-xs font-bold transition-all duration-300 ${
-                        isCompleted
-                          ? "bg-teal text-white"
-                          : isActive
-                          ? "bg-teal/20 text-teal border-2 border-teal"
-                          : "bg-teal-pale text-brand-light"
-                      }`}
-                    >
-                      {isCompleted ? "✓" : stepNum}
-                    </div>
-                    {index < STEP_LABELS.length - 1 && (
-                      <div
-                        className={`flex-1 h-0.5 mx-1 rounded-sm transition-colors duration-300 ${
-                          isCompleted ? "bg-teal" : "bg-teal-pale"
-                        }`}
-                      />
-                    )}
-                  </div>
-                  <div
-                    className={`font-body text-[11px] ${
-                      isActive ? "text-teal font-bold" : "text-brand-light"
-                    }`}
-                  >
-                    {label}
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
-
-        {/* Step content */}
-        <div className="px-8 py-6 pb-8">
-          {step === 1 && !isConfirmed && (
-            <StepService
-              selected={selectedService}
-              onSelect={setSelectedService}
-              onNext={() => setStep(2)}
-            />
-          )}
-
-          {step === 2 && !isConfirmed && selectedService && (
-            <StepDateTime
-              service={selectedService}
-              selectedDate={selectedDate}
-              selectedTime={selectedTime}
-              onSelectDate={setSelectedDate}
-              onSelectTime={setSelectedTime}
-              onNext={() => setStep(3)}
-              onBack={() => setStep(1)}
-            />
-          )}
-
-          {step === 3 && !isConfirmed && selectedService && selectedDate && selectedTime && (
-            <StepContact
-              service={selectedService}
-              date={selectedDate}
-              time={selectedTime}
-              form={form}
-              onChange={setForm}
-              onSubmit={handleSubmit}
-              onBack={() => setStep(2)}
-              isSending={isSending}
-            />
-          )}
-
-          {isConfirmed && selectedService && selectedDate && selectedTime && (
-            <StepConfirmation
-              service={selectedService}
-              date={selectedDate}
-              time={selectedTime}
-              form={form}
-              onClose={onClose}
-            />
-          )}
+        {/* TBooking Iframe */}
+        <div className="w-full">
+          <iframe
+            id="t-booking"
+            src="https://www.tbooking.ch/de/book/4743-6727?embedded=true&primary-color=9d5151&secondary-color=0274be"
+            style={{ width: "100%", minHeight: "600px", border: "none" }}
+            allow="camera *"
+          />
         </div>
       </div>
     </div>

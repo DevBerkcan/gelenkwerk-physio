@@ -40,7 +40,9 @@ const PHYSIO_CONTENT = {
       "Kinesiotaping & Taping",
       "Domizilbehandlungen (Behandlungen bei Ihnen zu Hause)",
     ],
-    pricingTitle: "Tarife Physiotherapie",
+    pricingTitle: "Tarife Privatleistungen",
+    pricingNote:
+      "Die Tarife gelten für Physiotherapie und Massage. Mit ärztlicher Verordnung übernimmt die Grundversicherung (KVG/UVG/IV/MV) die Physiotherapie nach Tarif.",
     pricingItems: [
       { title: "30 Minuten", description: "Einzelsitzungspauschale", price: "CHF 77.00" },
       { title: "45 Minuten", description: "Einzelsitzungspauschale", price: "CHF 114.50" },
@@ -85,7 +87,9 @@ const PHYSIO_CONTENT = {
       "Kinesio taping & taping",
       "Home visits (treatment at your home)",
     ],
-    pricingTitle: "Physiotherapy Rates",
+    pricingTitle: "Private Service Rates",
+    pricingNote:
+      "Rates apply to physiotherapy and massage. With a medical prescription, basic insurance (KVG/UVG/IV/MV) covers physiotherapy according to the tariff.",
     pricingItems: [
       { title: "30 minutes", description: "Single session flat rate", price: "CHF 77.00" },
       { title: "45 minutes", description: "Single session flat rate", price: "CHF 114.50" },
@@ -190,9 +194,14 @@ export default function PhysioSection({ onBooking }: PhysioSectionProps) {
 
         <div className="mt-20">
           <Reveal>
-            <h3 className="font-display text-[30px] text-brand-text mb-8">
+            <h3 className="font-display text-[30px] text-brand-text mb-3">
               {content.pricingTitle}
             </h3>
+          </Reveal>
+          <Reveal delay={0.05}>
+            <p className="font-body text-[14px] leading-relaxed text-brand-muted mb-8 max-w-[680px]">
+              {content.pricingNote}
+            </p>
           </Reveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
